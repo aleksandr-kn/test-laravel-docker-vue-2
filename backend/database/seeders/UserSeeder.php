@@ -25,5 +25,16 @@ class UserSeeder extends Seeder
                 'remember_token' => Str::random(10),
             ]);
         }
+
+        // Добавляем еще одного пользователя с всегда известным email, чтобы всегда был доступ для теста
+        User::create([
+            'last_name'   => $faker->lastName,
+            'first_name'  => $faker->firstName,
+            'middle_name' => $faker->middleName,
+            'phone'       => $faker->unique()->phoneNumber,
+            'email'       => 'testUserEmail@gmail.com',
+            'password'    => Hash::make('password'), // пароль по умолчанию
+            'remember_token' => Str::random(10),
+        ]);
     }
 }
