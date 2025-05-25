@@ -2,13 +2,15 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 import createPersistedState from 'vuex-persistedstate';
 import auth from './modules/auth';
+import users from './modules/users';
 import axios from 'axios';
 
 Vue.use(Vuex);
 
 const store = new Vuex.Store({
     modules: {
-        auth
+        auth,
+        users
     },
     plugins: [createPersistedState({
         paths: ['auth'],
